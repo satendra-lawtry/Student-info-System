@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}
+Search
+{% endblock title %}
+
+
+{% block bodycontent %}
+<!--  form -->
+<div class="container">
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="user-details">
+
+      <div class="input-box" style="width:100% ;">
+        <span class="details">Course</span>
+        <select class="form-select" name="course" aria-label="Default select example">
+          <option selected>Select Course</option>
+          <option>Java FullStack</option>
+          <option>Python FullStack</option>
+          <option>Mern</option>
+          <option>Mean</option>
+          <option>Java core&adv</option>
+          <option>Spring & hibernate</option>
+          <option>Python core&advance</option>
+          <option>Django & Rest</option>
+          <option>Blockchain</option>
+          <option>Oracle</option>
+          <option>Web Designing</option>
+          <option>React</option>
+          <option>Angular</option>
+          <option>Data analytics/Science</option>
+          <option>C & C++</option>
+          <option>Dsa</option>
+        </select>
+      </div>
+
+      <div class="input-box">
+        <span class="details">Name</span>
+        <input type="text" name="name" placeholder="Name">
+      </div>
+
+      <div class="input-box">
+        <span class="details">Mobile Number</span>
+        <input type="number" name="mob" placeholder="Enter Mobile" >
+      </div>
+      
+
+      <div class="input-box">
+        <span class="details">From Date</span>
+        <input type="date" name="fdt" placeholder="Enquary Date" >
+      </div>
+
+      <div class="input-box">
+        <span class="details">To Date</span>
+        <input type="date" name="tdt" placeholder="Enquary Date" >
+      </div>
+
+      <div class="input-box">
+        <span class="details">Dues</span>
+        <select class="form-select" name="dues" aria-label="Default select example">
+          <option selected>Remaining_Dues</option>
+          <option>No_Dues</option>
+      </select>
+      </div>
+
+
+      <div class="button">
+        <input type="submit" value="Search Now">
+      </div>
+  </form>
+  <!--  form end -->
+</div>
+
+
+{% endblock bodycontent %}

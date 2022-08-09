@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Student
+{% endblock title %}
+
+
+{% block bodycontent %}
+<!--  form -->
+<div class="container">
+    <form action="addstudent" method="post">
+        {% csrf_token %}
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">First Name</span>
+                <input type="text" name="fname" placeholder="First Name" required/>
+            </div>
+            <div class="input-box">
+                <span class="details">Last Name</span>
+                <input type="text" name="lname" placeholder="Last Name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Email</span>
+                <input type="email" name="email" placeholder="Enter Email" required>
+            </div>
+            
+            <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" name="password"  placeholder="Enter Password" required>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Mobile Number</span>
+                <input type="number" name="mob" placeholder="Enter Mobile" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Enquary Date</span>
+                <input type="date" name="edt" placeholder="Enquary Date" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Course</span>
+                <select class="form-select" name="course" aria-label="Default select example">
+                    <option selected>Select Course</option>
+                    <option>Java FullStack</option>
+                    <option>Python FullStack</option>
+                    <option>Mern</option>
+                    <option>Mean</option>
+                    <option>Java core&adv</option>
+                    <option>Spring & hibernate</option>
+                    <option>Python core&advance</option>
+                    <option>Django & Rest</option>
+                    <option>Blockchain</option>
+                    <option>Oracle</option>
+                    <option>Web Designing</option>
+                    <option>React</option>
+                    <option>Angular</option>
+                    <option>Data analytics/Science</option>
+                    <option>C & C++</option>
+                    <option>Dsa</option>
+                </select>
+            </div>
+            <!-- sel -->
+
+            <!-- sel -->
+            <div class="input-box">
+                <span class="details">Address</span>
+                <input type="text" name="address" placeholder="Enter Address" required>
+            </div>
+            <div class="input-box" style="width: 100%;">
+                <span class="details">Reamrks</span>
+                <input type="text" name="remarks" placeholder="Remarks" required>
+            </div>
+        </div>
+        <div class="button">
+            <input type="submit" value="Register Now">
+        </div>
+    </form>
+    <!--  form end -->
+</div>
+{%if messages%}
+{%for message in messages%}
+<script>
+{%if message.tags%}
+    window.alert('{{message}}');
+{%endif%}
+</script>
+{%endfor%}
+{%endif%}
+{% endblock bodycontent %}

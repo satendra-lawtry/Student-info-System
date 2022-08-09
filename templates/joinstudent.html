@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+Join Student
+{% endblock title %}
+
+{% block bodycontent %}
+<div class="container">
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="user-details">
+
+      <div class="input-box" style="width: 100%;">
+        <span class="details">Student Details</span>
+        <select class="form-select" name="student">
+          {% for i in st %}
+          <option value="{{i.user_id}}">{{i.name}} {{i.course}} {{i.edt}}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="input-box">
+        <span class="details">Joining date</span>
+        <input type="date" name="joined_dt" placeholder="Date Of Joining" required>
+      </div>
+
+      <div class="input-box">
+        <span class="details">Total Fee</span>
+        <input type="number" name="total" placeholder="Enter Total Fees" required>
+      </div>
+
+      <div class="input-box">
+        <span class="details">First Installment Amount</span>
+        <input type="number" name="first_ins" placeholder=" installment amount" required>
+      </div>
+
+      <div class="input-box">
+        <span class="details">First installment date</span>
+        <input type="date" name="first_dt" placeholder="Date" required>
+      </div>
+
+      <div class="input-box">
+        <span class="details">last Installment Amount</span>
+        <input type="number" name="last_ins" placeholder=" installment amount" required>
+      </div>
+
+      <div class="input-box">
+        <span class="details">last installment date</span>
+        <input type="date" name="last_dt" placeholder="Date" required>
+      </div>
+
+
+      <div class="input-box">
+        <span class="details">Duration Of Course</span>
+        <input type="text" name="duration" placeholder="Duration" required>
+      </div>
+
+      <div class="input-box">
+        <span class="details">Dues Fee</span>
+        <input type="number" name="dues" placeholder=" Total Fees Due" required>
+      </div>
+
+    </div>
+    <div class="button">
+      <input type="submit" value="Join New Student">
+    </div>
+  </form>
+</div>
+
+{%if messages%}
+{%for message in messages%}
+<script>
+  {%if message.tags %}
+  window.alert('{{message}}');
+  {% endif %}
+</script>
+{%endfor%}
+{%endif%}
+{% endblock bodycontent %}
