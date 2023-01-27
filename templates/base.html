@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ProLab | {% block title %}
+    <title>Infos | {% block title %}
 
         {% endblock title %}
 
@@ -184,41 +184,31 @@
             
             <!-- auth start -->
             {% if user.is_authenticated %}
-
-            
             <li class="nav-item">
                 <a class="nav-link active" href="/">Home</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="addstudent">Add student</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="showstudent">Show student</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="searchstudent">Search student</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="joinstudent">Join New student</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="showjoinedstudents">Show Joined student</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="searchjoinedstudents">Search Joined student</a>
             </li>
-            
             <li class="nav-item">
                 <a class="nav-link active" href="logout">Logout </a>
                 <p>{{user.first_name}}</p>
             </li>
-
             {%else%}
             <li class="nav-item">
                 <a class="nav-link active" href="signup">Sign Up</a>
@@ -227,7 +217,6 @@
             <li class="nav-item">
                 <a class="nav-link active" href="login">Login</a>
             </li>
-
             {% endif %}
 
 

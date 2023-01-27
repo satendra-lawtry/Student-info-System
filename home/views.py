@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Student, Joined, Batch, Trainer
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -56,7 +57,7 @@ def logout(request):
     messages.warning(request,'Sucsessfully Logout')
     return redirect('/')
 
-
+@login_required
 def addstudent(request):
     if request.method == 'POST':
         username = request.POST['email']
@@ -81,12 +82,12 @@ def addstudent(request):
     else:
         return render(request, 'addstudent.html')
 
-
+@login_required
 def showstudent(request):
     st = Student.objects.all()
     return render(request, 'showstudent.html', {'st': st})
 
-
+@login_required
 def updatestudent(request):
     id = request.POST['uid']
     s = Student.objects.filter(user_id=id).get()
@@ -99,7 +100,7 @@ def updatestudent(request):
     st = Student.objects.all()
     return render(request, 'showstudent.html', {'st': st})
 
-
+@login_required
 def searchstudent(request):
     if request.method == 'POST':
         name = request.POST['name']
@@ -122,7 +123,7 @@ def searchstudent(request):
     else:
         return render(request, 'searchstudent.html')
 
-
+@login_required
 def joinstudent(request):
     if request.method == 'POST':
         id = request.POST['student']
@@ -145,12 +146,12 @@ def joinstudent(request):
         st = Student.objects.all()
         return render(request, 'joinstudent.html', {'st': st})
 
-
+@login_required
 def showjoinedstudents(request):
     joined = Joined.objects.all()
     return render(request, 'showjoinedstudents.html', {'joined': joined})
 
-
+@login_required
 def updatejoined(request):
     id = request.POST['id']
     j = Joined.objects.filter(id=id).get()
@@ -162,7 +163,7 @@ def updatejoined(request):
     joined = Joined.objects.all()
     return render(request, 'showjoinedstudents.html', {'joined': joined})
 
-
+@login_required
 def searchjoinedstudents(request):
     if request.method == 'POST':
         name = request.POST['name']
